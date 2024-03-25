@@ -1,0 +1,27 @@
+[package]
+name = "mjsc-core"
+version = "0.1.0"
+authors.workspace = true
+edition.workspace = true
+license.workspace = true
+
+[[bin]]
+name = "mjsc_core"
+path = "src/main.rs"
+
+[lib]
+name = "mjsc_quickjs_provider"
+crate-type = ["cdylib"]
+
+[dependencies]
+wit-bindgen = "0.22.0"
+anyhow = { workspace = true }
+quickjs-wasm-rs = { git = "https://github.com/manetu/javy.git", tag = "v1.4.0-manetu.1" }
+quickjs-wasm-sys = { git = "https://github.com/manetu/javy.git", tag = "v1.4.0-manetu.1" }
+javy = { workspace = true, features = ["export_alloc_fns", "json"] }
+javy-apis = { git = "https://github.com/manetu/javy.git", tag = "v1.4.0-manetu.1", features = ["console", "text_encoding", "random", "stream_io"]}
+once_cell = { workspace = true }
+libc = "0.2.151"
+
+[features]
+experimental_event_loop = []

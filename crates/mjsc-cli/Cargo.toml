@@ -1,0 +1,29 @@
+[package]
+name = "mjsc-cli"
+version.workspace = true
+authors.workspace = true
+edition.workspace = true
+license.workspace = true
+build = "build.rs"
+
+[[bin]]
+name = "mjsc"
+path = "src/main.rs"
+
+[features]
+experimental_event_loop = []
+
+[dependencies]
+wizer = { workspace = true }
+structopt = "0.3"
+anyhow = { workspace = true }
+binaryen = { git = "https://github.com/pepyakin/binaryen-rs", rev = "00c98174843f957681ba0bc5cdcc9d15f5d0cb23" }
+brotli = "3.4.0"
+wasmtime = { workspace = true }
+wasmtime-wasi = { workspace = true }
+wasi-common = { workspace = true }
+walrus = "0.20.3"
+
+[build-dependencies]
+anyhow = "1.0.81"
+wizer = { workspace = true }
